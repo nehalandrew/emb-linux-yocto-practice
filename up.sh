@@ -1,9 +1,9 @@
 #! /bin/bash
 
 #upgrade all
-sudo apt update;
-sudo apt full-upgrade -y;
-sudo snap refresh;
+    sudo apt update;
+    sudo apt full-upgrade -y;
+    sudo snap refresh;
 
 # system
 sudo apt installv net-tools neofetch git python3 python3-pip -y;
