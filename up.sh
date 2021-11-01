@@ -9,7 +9,7 @@ sudo snap refresh;
 sudo apt install neofetch git \
 net-tools tlp \
 python3 python3-pip \
-cokpit cockpit cockpit-bridge cockpit-storaged cockpit-networkmanager \
+cockpit cockpit-bridge cockpit-storaged cockpit-networkmanager \
 -y;
 
 # RUST
