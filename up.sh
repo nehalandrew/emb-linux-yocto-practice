@@ -7,7 +7,7 @@ sudo snap refresh;
 
 # system
 sudo apt install neofetch git \
-net-tools \
+net-tools tlp \
 python3 python3-pip \
 cokpit cockpit cockpit-bridge cockpit-storaged cockpit-networkmanager \
 -y;
