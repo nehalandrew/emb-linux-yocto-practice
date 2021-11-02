@@ -6,7 +6,7 @@ sudo apt full-upgrade -y;
 sudo snap refresh;
 
 # system
-sudo apt install neofetch git \
+sudo apt install neofetch git htop \
 net-tools tlp \
 python3 python3-pip \
 cockpit cockpit-bridge cockpit-storaged cockpit-networkmanager \
