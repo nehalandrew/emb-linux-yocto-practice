@@ -9,16 +9,21 @@ sudo snap refresh;
 sudo apt install neofetch git htop \
 net-tools tlp \
 python3 python3-pip \
-cockpit cockpit-bridge cockpit-storaged cockpit-networkmanager \
+cockpit* \
 -y;
 
 # RUST
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
 
+# WEB
+sudo apt install nginx mariadb-server
+
 # JS
 sudo apt install nodejs npm -y;
 
-    # DOCKER 
+# DOCKER 
 sudo apt install docker docker-compose -y;
+
+
 
 neofetch;
