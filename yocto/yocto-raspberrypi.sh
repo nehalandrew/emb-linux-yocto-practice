@@ -69,4 +69,4 @@ bitbake -c menuconfig virtual/kernel;
 
 echo "
 RUN FOLLOWING COMMAND:
-source poky/oe-init-build-env build-rpi64";
+source sources/poky/oe-init-build-env rpi64-build";
