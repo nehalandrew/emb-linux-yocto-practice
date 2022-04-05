@@ -20,9 +20,16 @@ sudo apt install -y \
     diffstat \
     gawk \
     libncurses5-dev \
+    ncurses-dev \
     python3-distutils \
     texinfo \
     zstd \
+    wget \
+    git \
+    gcc-multilib \
+    socat \
+    lzop \
+    libsdl1.2-dev \
     liblz4-tool;
 
 echo "
@@ -33,6 +40,8 @@ sleep 30;
 ##                                   Meta-layers                      ##
 ########################################################################
 
+cd sources;
+
 # Poky
 git clone -b $BRANCHNAME git://git.yoctoproject.org/poky.git;
 
@@ -42,11 +51,13 @@ git clone -b $BRANCHNAME git://git@github.com:agherzan/meta-raspberrypi.git;
 # Meta-openembedded dependiences layer
 git clone -b $BRANCHNAME git://git.openembedded.org/meta-openembedded;
 
+cd ..;
+
 ########################################################################
 ##                                   Set build env                    ##
 ########################################################################
 
-source poky/oe-init-build-env build-rpi64;
+source sources/poky/oe-init-build-env rpi64-build;
 cp -r ../conf ./;
 bitbake-layers show-layers;
 

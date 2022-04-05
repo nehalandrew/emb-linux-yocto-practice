@@ -1,4 +1,4 @@
-/poky
-/meta-raspberrypi
-/meta-openembedded
-/build-rpi64
+/sources/*
+!sources/.gitkeep 
+
+/rpi64-build
