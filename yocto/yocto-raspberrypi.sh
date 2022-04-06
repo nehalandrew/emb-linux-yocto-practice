@@ -65,7 +65,7 @@ echo "
 OPTIONAL CMD:
 bitbake -c menuconfig virtual/kernel
 ";
-bitbake -c menuconfig virtual/kernel;
+# bitbake -c menuconfig virtual/kernel;
 
 echo "
 RUN FOLLOWING COMMAND:
