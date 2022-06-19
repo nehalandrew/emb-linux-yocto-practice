@@ -1,8 +1,23 @@
 ![picture](./linux_boot.dio.svg)
 
+```
+EFI ->                                        bios
+grub2(500) ->                          grub
+/boot/grub2 ->                          |
 
+/boot/vmlinuxz +                   kernel
+.dtb  +                                     device-tree-blob for embdd
+/boot/initrd.img ->                 initial ramdisk
+kthreadd +                            kernel thread daemon
+
+/usr/sbin/init >(/usr/lib/systemd/systemd) ->     systemd
+pstree
+```
 The systemd startup map: 
 
+```
+pstree
+```
 ```
    local-fs-pre.target
             |
