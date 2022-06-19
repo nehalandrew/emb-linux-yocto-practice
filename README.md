@@ -1,3 +1,42 @@
+
+:, [19.06.22 04:35]
+man dtc
+
+:, [19.06.22 15:39]
+Users space development
+gcc gdb makefile autoconf 
+
+understanding Linux startup
+bootloader kernel root file system
+linux system calls
+
+linux system administration tools ans utils
+
+LFS
+
+kernel module development BSP 
+conf build use
+
+build kernell for ur laptop
+
+:, [19.06.22 15:41]
+Clang
+real time
+I2C SPI UART I2S USB PCI modbus
+sensors
+bluetooth
+RAM RAID 
+yocto
+multimedia
+MCU MPU
+QT GTK+
+opencl openmp CUDA (parralel)
+
+
+
+
+
+
 ![picture](./linux_boot.dio.svg)
 
 ```
