@@ -8,8 +8,10 @@
 	- [ ] MCU MPU SoC
 
 - Kernel-space development:
-	- [ ] understanding Linux startup
-	- [ ] bootloader kernel root file system
+	- understanding Linux startup
+    	- [ ] bootloader 
+    	- [ ] kernel 
+    	- [ ] root file system
 	- [ ] man dtc DTB dev tree
 	- [ ] kernel module development BSP conf build use
 	- [ ] build kernel for ur laptop
