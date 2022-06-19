@@ -1,104 +1,92 @@
+# Embedded developer requirements
+- bare metal:
+	- [ ] real time os
+	- [ ] sensors
+	- [ ] I2C SPI UART I2S USB PCI modbus
+	- [ ] bluetooth 
+	- [ ] RAM RAID 
+	- [ ] MCU MPU SoC
 
-:, [19.06.22 04:35]
-man dtc
+- Kernel-space development:
+	- [ ] understanding Linux startup
+	- [ ] bootloader kernel root file system
+	- [ ] man dtc DTB dev tree
+	- [ ] kernel module development BSP conf build use
+	- [ ] build kernel for ur laptop
+	- [ ] linux system calls
+	- [ ] LFS
+	- [ ] yocto 
+	- [ ] QT GTK+ 
+	- [ ] opencl openmp CUDA (paralel)
 
-:, [19.06.22 15:39]
-Users space development
-gcc gdb makefile autoconf 
+- Users-space development:
+	- [ ] gcc gdb makefile autoconf lauterbach
+	- [ ] linux system administration tools ans utils
+	- [ ] Clang rust python
+	- [ ] multimedia
 
-understanding Linux startup
-bootloader kernel root file system
-linux system calls
+---
 
-linux system administration tools ans utils
+# Embedded developer knowledge
 
-LFS
-
-kernel module development BSP 
-conf build use
-
-build kernell for ur laptop
-
-:, [19.06.22 15:41]
-Clang
-real time
-I2C SPI UART I2S USB PCI modbus
-sensors
-bluetooth
-RAM RAID 
-yocto
-multimedia
-MCU MPU
-QT GTK+
-opencl openmp CUDA (parralel)
-
-
-
-
-
-
+## How linux startups:
+```
+->	EFI			BIOS
+->	grub2(500)		GRUB(in 500MB)
+->	/boot/grub2		GRUB2
+```
+```
+->	/boot/*.dtb		device-tree-blob for embedded
++	/boot/initrd.img	initial ramdisk
++	/boot/vmlinuz		zipped kernel
+->	kthreadd		kernel thread daemon
+```
+```
++	/usr/sbin/init		systemd (ln /usr/lib/systemd/systemd)
+->	pstree			daemons
+```
 ![picture](./linux_boot.dio.svg)
 
+## monolithic kernel structure:
+- device tree
+- drivers
+- managers:
+	- Memory
+	- Process
+	- virtual fs
+	- IPC
+	- IO
+	- Network
+- system call interface
+
+## rootfs + boot:
+### Kernel space (DTB + kernel + rootfs)
 ```
-EFI ->                                        bios
-grub2(500) ->                          grub
-/boot/grub2 ->                          |
+/boot	- BOOT, *.dtb, vmlinuz, initd.img
+/dev	- devices
+/sys	- devices drivers kernel...
+/proc	- proces like files
+```
+### User space (daemon + bins + libs)
+```
+/usr	- unix system resource bins libs
+/etc	- configs for bins
+/srv	- rules for sites
+```
+#### Daemons and programs files
+```
+/run	- runtime var dir for daemons
+/tmp	- short time var file
+/var	- long time var files like run tmp..
+```
 
-/boot/vmlinuxz +                   kernel
-.dtb  +                                     device-tree-blob for embdd
-/boot/initrd.img ->                 initial ramdisk
-kthreadd +                            kernel thread daemon
+#### Users files
+```
+/root 	- root home
+/home 	- users home
+```
 
-/usr/sbin/init >(/usr/lib/systemd/systemd) ->     systemd
+## The systemd startup map: 
+``` bash
 pstree
-```
-The systemd startup map: 
-
-```
-pstree
-```
-```
-   local-fs-pre.target
-            |
-            v
-   (various mounts and   (various swap   (various cryptsetup
-    fsck services...)     devices...)        devices...)       (various low-level   (various low-level
-            |                  |                  |             services: udevd,     API VFS mounts:
-            v                  v                  v             tmpfiles, random     mqueue, configfs,
-     local-fs.target      swap.target     cryptsetup.target    seed, sysctl, ...)      debugfs, ...)
-            |                  |                  |                    |                    |
-            \__________________|_________________ | ___________________|____________________/
-                                                 \|/
-                                                  v
-                                           sysinit.target
-                                                  |
-             ____________________________________/|\________________________________________
-            /                  |                  |                    |                    \
-            |                  |                  |                    |                    |
-            v                  v                  |                    v                    v
-        (various           (various               |                (various          rescue.service
-       timers...)          paths...)              |               sockets...)               |
-            |                  |                  |                    |                    v
-            v                  v                  |                    v              rescue.target
-      timers.target      paths.target             |             sockets.target
-            |                  |                  |                    |
-            v                  \_________________ | ___________________/
-                                                 \|/
-                                                  v
-                                            basic.target
-                                                  |
-             ____________________________________/|                                 emergency.service
-            /                  |                  |                                         |
-            |                  |                  |                                         v
-            v                  v                  v                                 emergency.target
-        display-        (various system    (various system
-    manager.service         services           services)
-            |             required for            |
-            |            graphical UIs)           v
-            |                  |           multi-user.target
-            |                  |                  |
-            \_________________ | _________________/
-                              \|/
-                               v
-                     graphical.target
 ```
