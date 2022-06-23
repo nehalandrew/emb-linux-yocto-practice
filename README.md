@@ -51,6 +51,13 @@
 ```
 ![picture](./linux_boot.dio.svg)
 
+## GRUB2 cli
+```
+linux /vmlinuz root=UUID=... #(='h0,_')(=/dev/sda)
+initrd /initrd.img
+boot
+```
+
 ## monolithic kernel structure:
 - device tree
 - drivers
