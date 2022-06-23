@@ -39,9 +39,9 @@
 ```
 ```
 ->	/boot/*.dtb		device-tree-blob for embedded
-+	/boot/initrd.img	initial ramdisk
 +	/boot/vmlinuz		zipped kernel
-->	kthreadd		kernel thread daemon
+->	/boot/initrd.img	initial ramdisk
++	kthreadd		kernel thread daemon
 ```
 ```
 +	/usr/sbin/init		systemd (ln /usr/lib/systemd/systemd)
