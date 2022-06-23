@@ -53,7 +53,7 @@
 
 ## GRUB2 cli
 ```
-linux /vmlinuz root=UUID=... #(='h0,_')(=/dev/sda)
+linux /vmlinuz root=UUID=... # (='h0,_') (=/dev/sda)
 initrd /initrd.img
 boot
 ```
