@@ -1,1 +1,5 @@
-.vscode-ctags.next
+./sources/*
+!sources/.gitkeep 
+
+./rpi64-build
+./build-rpi64
