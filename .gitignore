@@ -1,5 +1,2 @@
-./sources/*
-!sources/.gitkeep 
-
-./rpi64-build
-./build-rpi64
+#./rpi64-build
+#./build-rpi64
