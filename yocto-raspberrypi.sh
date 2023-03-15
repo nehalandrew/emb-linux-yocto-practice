@@ -7,7 +7,7 @@
 readonly BRANCHNAME=honister;
 
 ########################################################################
-##                                   System Dependiences              ##
+##                                   System Dependencies              ##
 ########################################################################
 
 sudo apt update;
@@ -33,7 +33,7 @@ sudo apt install -y \
     liblz4-tool;
 
 echo "
-!!!    PYTHON3 MUST HAVE ASLIAS AS PYTHON IN ~/.bashrc    !!!";
+!!!    PYTHON3 MUST HAVE ALIAS AS PYTHON IN ~/.bashrc    !!!";
 sleep 30;
 
 ########################################################################
@@ -48,7 +48,7 @@ git clone -b $BRANCHNAME git://git.yoctoproject.org/poky.git;
 # Meta-raspberrypi BSP layer
 git clone -b $BRANCHNAME git://git@github.com:agherzan/meta-raspberrypi.git;
 
-# Meta-openembedded dependiences layer
+# Meta-openembedded dependencies layer
 git clone -b $BRANCHNAME git://git.openembedded.org/meta-openembedded;
 
 cd ..;
