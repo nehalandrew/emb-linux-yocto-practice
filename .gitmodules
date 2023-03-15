@@ -15,5 +15,5 @@
 	branch = thud
 [submodule "sources/poky"]
 	path = sources/poky
-	url = git://git.yoctoproject.org/poky.git
+	url = git://git.yoctoproject.org/poky
 	branch = thud
