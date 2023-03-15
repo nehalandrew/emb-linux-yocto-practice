@@ -1,6 +1,27 @@
 # This is yocto study practice
+## Install
 
-## Ecosystem
+Git clone:
+
+```shell
+git clone --recurse-submodules -j8 git@github.com:andneh/yocto_practice.git;
+```
+
+Install dependencies:
+
+```shell
+cd yocto_practice;
+make prepare;
+```
+
+Build:
+
+```shell
+make bitbake;
+make img;
+```
+
+## Yocto Ecosystem
 - BitBake
 - OpenEmbedded
 - Yocto project - poky
