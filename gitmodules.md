@@ -17,4 +17,4 @@
 [submodule "sources/poky"]
 	path = sources/poky
 	url = git://git.yoctoproject.org/poky.git
-	branch = thud
+	branch = langdale

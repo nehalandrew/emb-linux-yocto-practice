@@ -1,0 +1,6 @@
+[submodule "poky"]
+	branch = langdale
+[submodule "meta-raspberrypi"]
+	branch = langdale
+[submodule "meta-openembedded"]
+	branch = langdale
