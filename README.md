@@ -11,10 +11,27 @@
 ![](./docs/bitbake.jpg)
 
 ## BB File structure
-- ./conf
-- ./sources
-  - ./sources/meta-bsp - 
-  - ./sources/poky
-  - ./sources/meta-openembedded
-  - ./sources/meta-* 
-- ./build
+
+### Config 
+
+`./conf`
+
+`./conf/bblayers.conf`
+
+`./conf/local.conf`
+
+### sources
+
+`./sources`
+
+`./sources/meta-bsp`
+
+`./sources/poky`
+
+`./sources/meta-openembedded`
+
+`./sources/meta-* `
+
+### Build
+
+`./build`
