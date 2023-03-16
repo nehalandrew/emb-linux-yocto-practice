@@ -11,7 +11,7 @@
 #     docker run -it --rm -v $PWD/yocto/output:/home/cuteradio/yocto/output cuteradio-image:latest
 
 # Use Ubuntu 16.04 LTS as the basis for the Docker image.
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
 # Install all the Linux packages required for Yocto builds. Note that the packages python3,
 # tar, locales and cpio are not listed in the official Yocto documentation. The build, however,
@@ -29,8 +29,8 @@ RUN locale-gen en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-ENV USER_NAME cuteradio
-ENV PROJECT cuteradio
+ENV USER_NAME yp
+ENV PROJECT yocto_practice
 
 # The running container writes all the build artefacts to a host directory (outside the container).
 # The container can only write files to host directories, if it uses the same user ID and
@@ -57,7 +57,7 @@ RUN mkdir -p $BUILD_INPUT_DIR $BUILD_OUTPUT_DIR
 
 # Clone the repositories of the meta layers into the directory $BUILD_INPUT_DIR/sources/cuteradio.
 WORKDIR $BUILD_INPUT_DIR
-RUN git clone --recurse-submodules https://github.com/bstubert/$PROJECT.git
+RUN git clone --recurse-submodules https://github.com/andneh/$PROJECT.git
 
 # Prepare Yocto's build environment. If TEMPLATECONF is set, the script oe-init-build-env will
 # install the customised files bblayers.conf and local.conf. This script initialises the Yocto

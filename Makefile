@@ -1,7 +1,9 @@
+SHELL := /bin/bash
+
 apt:
-	sudo apt update;
-	sudo apt full-upgrade -y;
-	sudo apt install -y \
+	apt update;
+	apt full-upgrade -y;
+	apt install -y \
     	build-essential \
     	python3 \
     	python3-pip \
@@ -20,23 +22,18 @@ apt:
     	lzop \
     	libsdl1.2-dev \
     	liblz4-tool;
-env:
-	source .env;
-
 git:
-	make env;
-	git submodule foreach git checkout ${version};
-
-build_env:
-	source sources/poky/oe-init-build-env rpi64-build;
-	cp -r ../conf ./;
-	bitbake-layers show-layers;
-	echo "\nOPTIONAL CMD:\nbitbake -c menuconfig virtual/kernel\n";
-	# bitbake -c menuconfig virtual/kernel;
-
+	source .env & git submodule foreach git checkout ${version};
+	source .env & git submodule foreach git pull;
 prepare:
 	make apt;
 	make git;
-
-build:
-	source sources/poky/oe-init-build-env rpi64-build";
+bbenv:
+	source sources/poky/oe-init-build-env build;
+	cp -r ../conf ./;
+	bitbake-layers show-layers;
+menu:
+	bitbake -c menuconfig virtual/kernel;
+bb:
+	make build_env;
+	source sources/poky/oe-init-build-env rpi64-build;

@@ -1,0 +1,12 @@
+version: "3"
+services:
+  yocoto-dev-enviroment:
+    image: ubuntu:latest
+    container_name: yocto-project
+    network_mode: bridge
+    volumes:
+      - ./:/project/
+    working_dir: /project
+    command: bash -c "./scripts/apt.sh;sleep infinity"
+    env_file:
+      - .env
