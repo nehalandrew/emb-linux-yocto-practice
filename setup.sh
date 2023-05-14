@@ -1,4 +1,5 @@
 #! /bin/bash
+source .env
 
 # setup
 sudo apt update
@@ -7,6 +8,8 @@ sudo apt full-upgrade -y
 sudo locale-gen en_US.UTF-8
 
 git submodule update --init --recursive
+git submodule foreach git checkout ${version};
+git submodule foreach git pull;
 
 # env 
 source sources/poky/oe-init-build-env build
