@@ -12,6 +12,7 @@ git submodule update --init --recursive
 cd sources/poky/
 source oe-init-build-env
 
+# mkdir sources/poky/meta/recipes-core/init-ifupdown/init-ifupdown-1.0/raspberrypi3
 
 # build
 bitbake core-image-sato
