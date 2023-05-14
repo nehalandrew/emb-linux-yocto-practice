@@ -8,9 +8,8 @@ sudo locale-gen en_US.UTF-8
 
 git submodule update --init --recursive
 
-# env
-cd sources/poky/
-source oe-init-build-env
+# env 
+source sources/poky/oe-init-build-env build
 
 # mkdir sources/poky/meta/recipes-core/init-ifupdown/init-ifupdown-1.0/raspberrypi3
 
